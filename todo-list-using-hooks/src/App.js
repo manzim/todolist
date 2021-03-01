@@ -1,11 +1,31 @@
-import React from 'react';
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import React, { useState } from 'react';
+
+import './App.css'
 
 function App() {
+
+  const [currentItem, setCurrentItem] = useState('');
+  const [itemList, updateItemList] = useState('');
+
   return (
     <div className="App">
-      <TodoList />
+      <header className="App-header">
+        <div className="Wrapper">
+          <div className="Input-wrapper">
+            <input
+              value={currentItem}
+              onChange={(e) => setCurrentItem(e.target.value)}
+            />
+            <button onClick={() => {
+              updateItemList([...itemList, { item: currentItem, key: Date.now() }]);
+              { setCurrentItem('') }
+            }
+            }>
+              +
+            </button>
+          </div>
+        </div>
+      </header>
     </div>
   );
 }
