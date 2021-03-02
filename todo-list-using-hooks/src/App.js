@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import './App.css'
-
+import './App.css';
+import List from './List';
 function App() {
 
   const [currentItem, setCurrentItem] = useState('');
@@ -16,7 +16,8 @@ function App() {
               value={currentItem}
               onChange={(e) => setCurrentItem(e.target.value)}
             />
-            <button onClick={() => {
+            {/* {currentItem.length ? {} : undefined} */}
+            <button onClick={() => { 
               updateItemList([...itemList, { item: currentItem, key: Date.now() }]);
               { setCurrentItem('') }
             }
@@ -24,6 +25,7 @@ function App() {
               +
             </button>
           </div>
+            <List itemList={itemList} updateItemList={updateItemList} />
         </div>
       </header>
     </div>
