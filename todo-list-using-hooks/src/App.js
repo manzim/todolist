@@ -13,6 +13,7 @@ function App() {
         <div className="Wrapper">
           <div className="Input-wrapper">
             <input
+              placeholder="please add your task"
               value={currentItem}
               onChange={(e) => setCurrentItem(e.target.value)}
             />
