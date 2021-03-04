@@ -12,14 +12,17 @@ function List({ itemList, updateItemList }) {
 
     return (
         <div>
-            {itemList.map(itemObj => {
-                return (
-                    <div key={itemObj.key} className="Item">
-                        <p> {itemObj.item} </p>
-                        <button onClick={() => deleteFromList(itemObj.key)} > - </button>
-                    </div>
-                );
-            })}
+            {
+                (itemList.length > 0) ?
+                    itemList.map((itemObj) => {
+                        return (
+                            <div key={itemObj.key} className="Item">
+                                <p> {itemObj.item} </p>
+                                <button onClick={() => deleteFromList(itemObj.key)} > - </button>
+                            </div>)
+                    }
+                    ) : undefined
+            }
         </div>
     );
 }
