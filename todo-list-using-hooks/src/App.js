@@ -25,6 +25,7 @@ function App() {
               </>
               else
                 alert('please write at least 3 characters')
+                setCurrentItem('')
             }
             }
             > + </button>
